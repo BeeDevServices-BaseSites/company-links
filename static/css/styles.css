@@ -96,6 +96,9 @@ body {
   justify-content: center;
   align-items: center;
   width: 95%;
+  background-image: url('../imgs/hex.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 body main {
   display: flex;
@@ -104,6 +107,9 @@ body main {
   align-items: center;
   width: 85%;
   justify-content: space-evenly;
+}
+body main .accordion {
+  z-index: 10;
 }
 body main .accordion .tab {
   padding: 0.5em;
