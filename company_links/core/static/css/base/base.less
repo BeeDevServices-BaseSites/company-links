@@ -1,0 +1,52 @@
+.flexrow {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.flexcolumn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@primary: #227093;
+@secondary: #ff5252;
+@background: #9A9A9A;
+@highlight: #B8A254;
+@pink: #FE0AFA;
+@purple: #BC2AFE;
+
+@primaryShadow: #22709375;
+@secondaryShadow: #ff525275;
+@backgroundShadow: #9A9A9A75;
+@highlightShadow: #B8A25475;
+
+.priShadow {
+    box-shadow: 0 .25em .75em @primaryShadow;
+}
+.priShadowInset {
+    box-shadow: 0 0 1em .06em @primaryShadow inset;
+}
+
+.secShadow {
+    box-shadow: 0 .25em .75em @secondaryShadow;
+}
+.secShadowInset {
+    box-shadow: 0 0 1em .06em @secondaryShadow inset;
+}
+
+.bgShadow {
+    box-shadow: 0 .25em .75em @backgroundShadow;
+}
+.bgShadowInset {
+    box-shadow: 0 0 1em .06em @backgroundShadow inset;
+}
+
+.highShadow {
+    box-shadow: 0 .25em 1.75em @highlightShadow;
+}
+.highShadowInset {
+    box-shadow: 0 0 1em .06em @highlightShadow inset;
+}

@@ -1,0 +1,36 @@
+.flexrow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.flexcolumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.priShadow {
+  box-shadow: 0 0.25em 0.75em #22709375;
+}
+.priShadowInset {
+  box-shadow: 0 0 1em 0.06em #22709375 inset;
+}
+.secShadow {
+  box-shadow: 0 0.25em 0.75em #ff525275;
+}
+.secShadowInset {
+  box-shadow: 0 0 1em 0.06em #ff525275 inset;
+}
+.bgShadow {
+  box-shadow: 0 0.25em 0.75em #9A9A9A75;
+}
+.bgShadowInset {
+  box-shadow: 0 0 1em 0.06em #9A9A9A75 inset;
+}
+.highShadow {
+  box-shadow: 0 0.25em 1.75em #B8A25475;
+}
+.highShadowInset {
+  box-shadow: 0 0 1em 0.06em #B8A25475 inset;
+}

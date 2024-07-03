@@ -1,0 +1,15 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    {% block header %}
+        <header>
+            <div class="row">
+                <img src="../static/img/beedev_devthis.png" alt="icon">
+                <h1>Company Links</h1>
+            </div>
+            <nav>
+                {% block menu %} {% include 'base/menu.html'  %} {% endblock menu %}
+            </nav>
+        </header>
+    {% endblock header %}
+</html>
