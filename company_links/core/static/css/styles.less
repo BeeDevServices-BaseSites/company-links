@@ -33,6 +33,34 @@ body {
     main {
         .flexcolumn();
         width: 90%;
+
+        .row {
+            .flexrow();
+            width: 95%;
+
+            #reg {
+                display: none;
+            }
+
+            button {
+                font-size: 1.2em;
+            }
+
+            form {
+                .flexcolumn();
+                font-size: 1.4em;
+                margin: 1em;
+
+                section {
+                    .flexcolumn();
+                    // padding: .5em;
+                    margin: .5em;
+                }
+                button {
+                    font-size: .8em;
+                }
+            }
+        }
     }
     footer {
         .flexcolumn();

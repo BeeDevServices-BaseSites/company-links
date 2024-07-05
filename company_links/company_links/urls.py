@@ -7,5 +7,5 @@ from core import views as app_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
-    path('users/', include('user.urls')),
+    path('user/', include('user.urls')),
 ]

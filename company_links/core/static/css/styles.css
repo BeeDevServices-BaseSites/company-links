@@ -79,6 +79,37 @@ body main {
   align-items: center;
   width: 90%;
 }
+body main .row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+}
+body main .row #reg {
+  display: none;
+}
+body main .row button {
+  font-size: 1.2em;
+}
+body main .row form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4em;
+  margin: 1em;
+}
+body main .row form section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5em;
+}
+body main .row form button {
+  font-size: 0.8em;
+}
 body footer {
   display: flex;
   flex-direction: column;

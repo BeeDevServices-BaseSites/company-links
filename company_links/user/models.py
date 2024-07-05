@@ -14,9 +14,9 @@ class AuthUser(models.Model):
 
     def __str__(self):
         if self.active:
-            return f'{self.first_name} - Active as of {self.active_date}'
+            return f'{self.first_name} - Active'
         else:
-            return f'{self.first_name} - Inactive as of {self.deactivate_date}'
+            return f'{self.first_name} - Inactive'
 
 class UserManager(models.Manager):
     def validate(self, form):
@@ -24,8 +24,8 @@ class UserManager(models.Manager):
         auth_email = AuthUser.objects.filter(email=form['email'], active=True)
         email_check = self.filter(email=form['email'])
         username_check = self.filter(username=form['username'])
-        if auth_email:
-            errors['email']= 'Unauthorized email'
+        if not auth_email:
+            errors['email']= 'Unauthorized / Inactive email. Please see Management'
         if email_check:
             errors['email'] = 'Email already in use'
         if username_check:
