@@ -5,9 +5,7 @@
         <nav>
             {% if user %}
                 <a href="/">Home</a>
-                {% if user.level > 1 %}
-                    <a href="/createPolicy/">Create New Policy</a>
-                {% endif %}
+                <a href="/createPolicy/">Create New Policy</a>
                 <a href="/logout/">Logout</a>
             {% endif %}
         </nav>

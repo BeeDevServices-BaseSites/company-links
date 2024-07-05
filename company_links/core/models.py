@@ -22,6 +22,8 @@ class Policy(models.Model):
     cat = models.ForeignKey(Category, related_name='theCategory', on_delete=CASCADE, blank=True)
     author = models.ForeignKey(AuthUser, related_name='theAuthor', on_delete=CASCADE)
     dept = models.ForeignKey(Department, related_name='theDepartment', on_delete=CASCADE, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f'{self.title} - {self.dept.department}'

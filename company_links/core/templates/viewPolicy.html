@@ -6,12 +6,14 @@
     {% block header %} {% include 'base/header.html' %} {% endblock header %}
     {% block flash %} {% include 'base/flash.html' %} {% endblock flash %}
     <main>
-        {{policy.content|safe}}
-        <div class="column">
-            <h3>Department: {{policy.policyDept}}</h3>
-            <h3>Author: {{policy.policyAuthor}}</h3>
+        <div class="policy">
+            {{policy.content|safe}}
+            <div class="column">
+                <a href="/{{policy.id}}/edit/">Edit</a>
+                <h3>Department: {{policy.policyDept}}</h3>
+                <h3>Author: {{policy.policyAuthor}}</h3>
+            </div>
         </div>
-
     </main>
     {% block footer %} {% include 'base/footer.html'  %} {% endblock footer %}
 </body>

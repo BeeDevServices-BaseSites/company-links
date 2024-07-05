@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'ckeditor',
+    'django_ckeditor_5',
     'core.apps.CoreConfig',
     'user.apps.UserConfig',
 ]
@@ -74,9 +75,22 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'company_links.wsgi.application'
 
-CKEDITOR_CONFIG = {
+CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': 'full',
+        'skin': 'moono',
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', '-', 'Undo', 'Redo']},
+            ['Bold', 'Italic', 'Underline'],
+            {'name': 'forms', 'items': ['Form', 'Checkbox', 'Radio', 'ImageButton']},
+            ['Link', 'Unlink'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            '/',
+            {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+            ['RemoveFormat', 'Source'],
+            {'name': 'editing', 'items': ['Find', 'Replace', '-', 'SelectAll']},
+        ],
         'height': 300,
         'width': '100%',
     },
@@ -131,7 +145,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

@@ -43,7 +43,6 @@ def viewPolicy(request, policy_id):
         return redirect('/')
     else:
         user = User.objects.get(id=request.session['user_id'])
-        request.session['role']= user.role
         role = request.session['role']
         policy = get_object_or_404(Policy, id=policy_id)
         context = {
@@ -59,7 +58,6 @@ def createPolicy(request):
         return redirect('/')
     else:
         user = User.objects.get(id=request.session['user_id'])
-        request.session['role']= user.role
         role = request.session['role']
         if request.method == 'POST':
             form = PolicyForm(request.POST)
@@ -74,3 +72,26 @@ def createPolicy(request):
             'form': form,
         }
         return render(request, 'createPolicy.html', context)
+    
+def editPolicy(request, policy_id):
+    if 'user_id' not in request.session:
+        messages.error(request, "Please log in")
+        return redirect('/')
+    else:
+        user = User.objects.get(id=request.session['user_id'])
+        role = request.session['role']
+        policy = get_object_or_404(Policy, id=policy_id)
+        if request.method == 'POST':
+            form = PolicyForm(request.POST, instance=policy)
+            if form.is_valid:
+                form.save()
+                return redirect('/viewPolicy/')
+        else:
+            form = PolicyForm(instance=policy)
+        context = {
+                'user': user,
+                'role': role,
+                'policy': policy,
+                'form': form,
+        }
+        return render(request, 'editPolicy.html', context)
