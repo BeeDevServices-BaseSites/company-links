@@ -18,8 +18,8 @@ def index(request):
         user = User.objects.get(id=request.session['user_id'])
         request.session['role']= user.role
         role = request.session['role']
-        policies = Policy.objects.values().all()
-        departments = Department.objects.values().all()
+        policies = Policy.objects.filter(dept__level__lte=user.level)
+        departments = Department.objects.filter(level__lte=user.level)
         categories = Category.objects.values().all()
         print('policies', policies)
         context = {

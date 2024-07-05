@@ -21,15 +21,15 @@ class Policy(models.Model):
     content = RichTextField()
     cat = models.ForeignKey(Category, related_name='theCategory', on_delete=CASCADE, blank=True)
     author = models.ForeignKey(AuthUser, related_name='theAuthor', on_delete=CASCADE)
-    dept = models.ForeignKey(Department, related_name='theDepartment', on_delete=CASCADE, blank=True)
+    dept = models.ForeignKey(Department, related_name='theDepartment', on_delete=CASCADE, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'{self.title} - {self.dept.department}'
-    
+        return f'{self.title} - {self.dept.department if self.dept else "No Department"}'
+
     def policyDept(self):
-        return self.dept.department
+        return self.dept.department if self.dept else "No Department"
     
     def policyAuthor(self):
         return self.author.first_name

@@ -1,4 +1,5 @@
 @import './base/base.less';
+// @import './according.less';
 
 body {
     .flexcolumn();
@@ -41,14 +42,12 @@ body {
             background-color: @background;
             width: 100%;
             padding: 1em;
-            align-items: flex-start;
             flex-wrap: wrap;
 
-            ul {
-                width: 95%;
+            .column {
+                .flexcolumn();
             }
         }
-
         .row {
             .flexrow();
             width: 95%;
@@ -73,6 +72,104 @@ body {
                 }
                 button {
                     font-size: .8em;
+                }
+            }
+        }
+        .main {
+            display: grid;
+            place-content: center;
+            grid-template-columns: repeat(auto-fit, min(100%, 30rem));
+            place-items: start;
+            gap: 1rem;
+            margin: 0;
+            padding: 1rem;
+
+            .tab input {
+                position: absolute;
+                opacity: 0;
+                z-index: -1;
+            }
+            .tab__content {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.35s;
+            background: var(--shadow);
+            color: var(--font);
+        
+            a {
+                color: var(--link);
+            }
+            }
+            .tab input:checked ~ .tab__content {
+            max-height: 10rem;
+            }
+
+            .accordion {
+                color: var(--theme);
+                border: 2px solid;
+                border-radius: 0.5rem;
+                overflow: hidden;
+                z-index: 10;
+    
+                .tab__label, .tab__close {
+                    display: flex;
+                    color: white;
+                    background: var(--theme);
+                    cursor: pointer;
+                }
+                .tab__label {
+                    justify-content: space-between;
+                    padding: 1rem;
+                }
+                .tab__label::after {
+                    content: "\276F";
+                    width: 1em;
+                    height: 1em;
+                    text-align: center;
+                    transform: rotate(90deg);
+                    transition: all 0.35s;
+                }
+                .tab input:checked + .tab__label::after {
+                    transform: rotate(270deg);
+                }
+                .tab__content p {
+                    margin: 0;
+                    padding: 1rem;
+                }
+                .tab__close {
+                justify-content: flex-end;
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+                }
+                .accordion--radio {
+                --theme: var(--secondary);
+                }
+                .tab input:not(:checked) + .tab__label:hover::after {
+                    animation: bounce .5s infinite;
+                }
+                @keyframes bounce {
+                25% {
+                    transform: rotate(90deg) translate(.25rem);
+                }
+                75% {
+                    transform: rotate(90deg) translate(-.25rem);
+                }
+                }
+                .tab {
+                    padding: .5em;
+    
+                    .tab__label {
+                        padding: 1em;
+                        width: 400px;
+                        font-size: 1.8em;
+                    }
+                    .tab__content {
+                        ul {
+                            li {
+                                font-size: 1.4em;
+                            }
+                        }
+                    }
                 }
             }
         }

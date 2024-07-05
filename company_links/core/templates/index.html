@@ -6,9 +6,29 @@
     {% block header %} {% include 'base/header.html' %} {% endblock header %}
     {% block flash %} {% include 'base/flash.html' %} {% endblock flash %}
     <main>
-        {% for p in policies %}
-            <a href="{{p.id}}/">{{p.title}}</a>
+        <div class="main">
+            {% for d in departments %}
+            <section class="accordion">
+                <div class="tab">
+                    <input type="checkbox" name="accordion-1" id="dept-{{d.id}}">
+                    <label for="dept-{{d.id}}" class="tab__label">{{d.department}}</label>
+                    <div class="tab__content">
+                        {% for p in policies %}
+                            {% if p.dept_id == d.id %}
+                                <ul>
+                                    <li><a href="{{p.id}}/">{{p.title}}</a></li>
+                                </ul>
+                            {% else %}
+                                <ul>
+                                    <li>No Links Yet</li>
+                                </ul>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
         {% endfor %}
+        </div>
     </main>
     {% block footer %} {% include 'base/footer.html'  %} {% endblock footer %}
 </body>
