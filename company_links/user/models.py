@@ -12,6 +12,12 @@ class AuthUser(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        if self.active:
+            return f'{self.first_name} - Active as of {self.active_date}'
+        else:
+            return f'{self.first_name} - Inactive as of {self.deactivate_date}'
+
 class UserManager(models.Manager):
     def validate(self, form):
         errors = {}
@@ -29,7 +35,7 @@ class UserManager(models.Manager):
         return errors
     
 class User(models.Model):
-    fist_name = models.CharField(max_length=255)
+    first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     username = models.CharField(max_length=255)
     email = models.CharField(max_length=255)
@@ -41,3 +47,6 @@ class User(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.username} - {self.first_name}'
