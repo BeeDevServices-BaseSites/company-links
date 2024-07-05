@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from core.forms import *
 from user.models import *
+from core.models import *
 
 
 def index(request):
@@ -21,3 +23,13 @@ def logout(request):
     request.session.clear()
     messages.error(request, 'You have ben logged out')
     return redirect('/')
+
+def createPolicy(request):
+    if request.method == 'POST':
+        form = PolicyForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+    else:
+        form = PolicyForm()
+    return render(request, 'createPolicy.html', {'form': form})
