@@ -8,6 +8,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('', views.index),
     path('logout/', views.logout),
+    path('<int:policy_id>/', views.viewPolicy),
     path('createPolicy/', views.createPolicy),
 ]
 if settings.DEBUG:

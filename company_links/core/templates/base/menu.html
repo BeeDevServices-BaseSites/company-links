@@ -3,7 +3,10 @@
 <html lang="en">
     {% block menu %}
         <nav>
-
+            {% if user %}
+                <a href="/">Home</a>
+                <a href="/logout/">Logout</a>
+            {% endif %}
         </nav>
     {% endblock menu %}
 </html>

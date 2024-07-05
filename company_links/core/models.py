@@ -25,3 +25,9 @@ class Policy(models.Model):
 
     def __str__(self):
         return f'{self.title} - {self.dept.department}'
+    
+    def policyDept(self):
+        return self.dept.department
+    
+    def policyAuthor(self):
+        return self.author.first_name
