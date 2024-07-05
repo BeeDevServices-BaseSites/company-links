@@ -38,16 +38,25 @@ def logout(request):
     return redirect('/')
 
 def viewPolicy(request, policy_id):
-    policy = get_object_or_404(Policy, id=policy_id)
-    context = {
-        'policy': policy,
-    }
-    return render(request, 'viewPolicy.html', context)
+    if 'user_id' not in request.session:
+        messages.error(request, "Please log in")
+        return redirect('/')
+    else:
+        user = User.objects.get(id=request.session['user_id'])
+        request.session['role']= user.role
+        role = request.session['role']
+        policy = get_object_or_404(Policy, id=policy_id)
+        context = {
+            'policy': policy,
+            'user': user,
+            'role': role,
+        }
+        return render(request, 'viewPolicy.html', context)
 
 def createPolicy(request):
     if 'user_id' not in request.session:
         messages.error(request, "Please log in")
-        return render(request, 'logReg.html')
+        return redirect('/')
     else:
         user = User.objects.get(id=request.session['user_id'])
         request.session['role']= user.role
