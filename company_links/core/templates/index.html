@@ -8,24 +8,22 @@
     <main>
         <div class="main">
             {% for d in departments %}
-            <section class="accordion">
-                <div class="tab">
-                    <input type="checkbox" name="accordion-1" id="dept-{{d.id}}">
-                    <label for="dept-{{d.id}}" class="tab__label">{{d.department}}</label>
-                    <div class="tab__content">
-                        {% for p in policies %}
-                            {% if p.dept_id == d.id %}
-                                <ul>
-                                    <li><a href="{{p.id}}/">{{p.title}}</a></li>
-                                </ul>
-                            {% else %}
-                                <ul>
-                                    <li>No Links Yet</li>
-                                </ul>
-                            {% endif %}
-                        {% endfor %}
+            <section class="ac">
+                <input type="checkbox" name="ac-{{d.id}}" id="ac-{{d.id}}" class="ac-input">
+                <label for="ac-{{d.id}}" class="ac-label">{{d.department}}</label>
+                <article class="ac-text">
+                    <div class="ac-sub">
+                        <input class="ac-input" type="checkbox" name="ac-policy-{{d.id}}" id="ac-policy={{d.id}}">
+                        <label class="ac-lable" for="ac-policy-{{d.id}}">Polices</label>
+                        <article class="ac-sub-text">
+                            {% for p in policies %}
+                                {% if p.dept_id == d.id %}
+                                    <p>{{p.title}}</p>
+                                {% endif %}
+                            {% endfor %}
+                        </article>
                     </div>
-                </div>
+                </article>
             </section>
         {% endfor %}
         </div>
@@ -33,3 +31,10 @@
     {% block footer %} {% include 'base/footer.html'  %} {% endblock footer %}
 </body>
 </html>
+<!-- {% for p in policies %}
+                                        {% if p.dept_id == d.id %}
+                                            <ul>
+                                                <li><a href="/policy/{{p.id}}/">{{p.title}}</a></li>
+                                            </ul>
+                                        {% endif %}
+                                    {% endfor %} -->

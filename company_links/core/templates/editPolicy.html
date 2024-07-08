@@ -7,7 +7,7 @@
     {% block flash %} {% include 'base/flash.html' %} {% endblock flash %}
     <main>
         {{form.media}}
-        <form action="/{{form.id}}/edit/" method="post">
+        <form action="/policy/{{form.id}}/edit/" method="post">
             {% csrf_token %}
             {{ form.as_p }}
             <button>Save</button>

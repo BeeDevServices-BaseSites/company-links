@@ -33,3 +33,22 @@ class Policy(models.Model):
     
     def policyAuthor(self):
         return self.author.first_name
+    
+
+class Link(models.Model):
+    name = models.CharField(max_length=255)
+    url = models.TextField()
+    theCat = models.ForeignKey(Category, related_name='theCat', on_delete=CASCADE, blank=True)
+    creator = models.ForeignKey(AuthUser, related_name='theCreator', on_delete=CASCADE)
+    theDept = models.ForeignKey(Department, related_name='theDept', on_delete=CASCADE, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.title} - {self.theDept.department if self.theDept else "No Department"}'
+    
+    def linkDept(self):
+        return self.theDept.department if self.theDept else "No Department"
+    
+    def linkAuthor(self):
+        return self.creator.first_name

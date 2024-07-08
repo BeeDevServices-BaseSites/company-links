@@ -50,6 +50,112 @@
 .highShadowInset {
   box-shadow: 0 0 1em 0.06em #B8A25475 inset;
 }
+@font-face {
+  font-family: 'News Cycle';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/newscycle/v23/CSR64z1Qlv-GDxkbKVQ_fOAKSA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'News Cycle';
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://fonts.gstatic.com/s/newscycle/v23/CSR54z1Qlv-GDxkbKVQ_dFsvWNRevA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Lobster';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/lobster/v30/neILzCirqoswsqX9zoKmNg.ttf) format('truetype');
+}
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+h1 {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+h3 {
+  margin-top: 0;
+  font-weight: 300;
+}
+.container {
+  max-width: 40em;
+  margin: 10px auto;
+}
+.ac-label {
+  font-weight: 700;
+  position: relative;
+  padding: 0.5em 1em;
+  margin-bottom: 0.5em;
+  display: block;
+  cursor: pointer;
+  background-color: whiteSmoke;
+  transition: background-color 0.15s ease-in-out;
+}
+.ac-input:checked + .ac-label,
+.ac-label:hover {
+  background-color: pink;
+}
+.ac-label:after,
+.ac-input:checked + .ac-label:after {
+  content: "+";
+  position: absolute;
+  display: block;
+  right: 0;
+  top: 0;
+  width: 2em;
+  height: 100%;
+  line-height: 2.25em;
+  text-align: center;
+  background-color: #e5e5e5;
+  transition: background-color 0.15s ease-in-out;
+}
+.ac-label:hover:after,
+.ac-input:checked + .ac-label:after {
+  background-color: #b5b5b5;
+}
+.ac-input:checked + .ac-label:after {
+  content: "-";
+}
+.ac-input {
+  display: none;
+}
+.ac-text,
+.ac-sub-text {
+  opacity: 0;
+  height: 0;
+  margin-bottom: 0.5em;
+  transition: opacity 0.5s ease-in-out;
+  overflow: hidden;
+}
+.ac-input:checked ~ .ac-text,
+.ac-sub .ac-input:checked ~ .ac-sub-text {
+  opacity: 1;
+  height: auto;
+}
+.ac-sub .ac-label {
+  background: none;
+  font-weight: 600;
+  padding: 0.5em 2em;
+  margin-bottom: 0;
+}
+.ac-sub .ac-label:checked {
+  background: none;
+  border-bottom: 1px solid whitesmoke;
+}
+.ac-sub .ac-label:after,
+.ac-sub .ac-input:checked + .ac-label:after {
+  left: 0;
+  background: none;
+}
+.ac-sub .ac-input:checked + .ac-label,
+.ac-sub .ac-label:hover {
+  background: none;
+}
+.ac-sub-text {
+  padding: 0 1em 0 2em;
+}
 body {
   display: flex;
   flex-direction: column;
@@ -143,94 +249,10 @@ body main .row form button {
   font-size: 0.8em;
 }
 body main .main {
-  display: grid;
-  place-content: center;
-  grid-template-columns: repeat(auto-fit, min(100%, 30rem));
-  place-items: start;
-  gap: 1rem;
-  margin: 0;
-  padding: 1rem;
-}
-body main .main .tab input {
-  position: absolute;
-  opacity: 0;
-  z-index: -1;
-}
-body main .main .tab__content {
-  max-height: 0;
-  overflow: hidden;
-  transition: all 0.35s;
-  background: var(--shadow);
-  color: var(--font);
-}
-body main .main .tab__content a {
-  color: var(--link);
-}
-body main .main .tab input:checked ~ .tab__content {
-  max-height: 10rem;
-}
-body main .main .accordion {
-  color: var(--theme);
-  border: 2px solid;
-  border-radius: 0.5rem;
-  overflow: hidden;
-  z-index: 10;
-}
-body main .main .accordion .tab__label,
-body main .main .accordion .tab__close {
   display: flex;
-  color: white;
-  background: var(--theme);
-  cursor: pointer;
-}
-body main .main .accordion .tab__label {
-  justify-content: space-between;
-  padding: 1rem;
-}
-body main .main .accordion .tab__label::after {
-  content: "\276F";
-  width: 1em;
-  height: 1em;
-  text-align: center;
-  transform: rotate(90deg);
-  transition: all 0.35s;
-}
-body main .main .accordion .tab input:checked + .tab__label::after {
-  transform: rotate(270deg);
-}
-body main .main .accordion .tab__content p {
-  margin: 0;
-  padding: 1rem;
-}
-body main .main .accordion .tab__close {
-  justify-content: flex-end;
-  padding: 0.5rem 1rem;
-  font-size: 0.75rem;
-}
-body main .main .accordion .accordion--radio {
-  --theme: var(--secondary);
-}
-body main .main .accordion .tab input:not(:checked) + .tab__label:hover::after {
-  animation: bounce 0.5s infinite;
-}
-@keyframes bounce {
-  25% {
-    transform: rotate(90deg) translate(0.25rem);
-  }
-  75% {
-    transform: rotate(90deg) translate(-0.25rem);
-  }
-}
-body main .main .accordion .tab {
-  padding: 0.5em;
-}
-body main .main .accordion .tab .tab__label {
-  padding: 1em;
-  width: 400px;
-  font-size: 1.8em;
-}
-body main .main .accordion .tab .tab__content ul li {
-  font-size: 1.4em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 body footer {
   display: flex;

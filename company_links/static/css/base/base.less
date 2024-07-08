@@ -17,11 +17,27 @@
 @highlight: #B8A254;
 @pink: #FE0AFA;
 @purple: #BC2AFE;
+@green: #1CF432;
 
 @primaryShadow: #22709375;
 @secondaryShadow: #ff525275;
 @backgroundShadow: #9A9A9A75;
 @highlightShadow: #B8A25475;
+
+:root {
+    --primary: #227093;
+    --secondary: #ff5252;
+    --background: #eee;
+    --highlight: #ffda79;
+    --shadow: #9a9a9a;
+    --font: #FE0AFA;
+    --link: #1CF432;
+    /* Theme color */
+    --theme: var(--primary);
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
 
 .priShadow {
     box-shadow: 0 .25em .75em @primaryShadow;

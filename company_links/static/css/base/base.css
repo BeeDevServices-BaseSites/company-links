@@ -10,6 +10,22 @@
   justify-content: center;
   align-items: center;
 }
+:root {
+  --primary: #227093;
+  --secondary: #ff5252;
+  --background: #eee;
+  --highlight: #ffda79;
+  --shadow: #9a9a9a;
+  --font: #FE0AFA;
+  --link: #1CF432;
+  /* Theme color */
+  --theme: var(--primary);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 .priShadow {
   box-shadow: 0 0.25em 0.75em #22709375;
 }
