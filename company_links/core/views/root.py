@@ -21,6 +21,7 @@ def index(request):
         policies = Policy.objects.filter(dept__level__lte=user.level)
         departments = Department.objects.filter(level__lte=user.level)
         categories = Category.objects.values().all()
+        links = Link.objects.filter(theDept__level__lte=user.level)
         print('policies', policies)
         context = {
             'user': user,
@@ -28,6 +29,7 @@ def index(request):
             'policies': policies,
             'departments': departments,
             'categories': categories,
+            'links': links,
         }
         print('user', user)
         return render(request, 'index.html', context)

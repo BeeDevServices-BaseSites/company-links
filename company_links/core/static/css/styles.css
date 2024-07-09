@@ -182,6 +182,8 @@ body header .row {
   align-items: center;
   width: 100%;
   justify-content: space-between;
+  font-family: Lobster;
+  font-weight: normal;
 }
 body header .row img {
   max-width: 150px;
@@ -253,6 +255,120 @@ body main .main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  margin-top: 2em;
+}
+body main .main .ac {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+}
+body main .main .ac .ac-label {
+  width: 100%;
+  font-family: Lobster;
+  font-weight: normal;
+  font-size: 1.8em;
+  position: relative;
+  padding: 0.5em 1em;
+  margin-bottom: 0.5em;
+  display: block;
+  cursor: pointer;
+  background-color: var(--shadow);
+  transition: background-color 0.15s ease-in-out;
+  color: #1CF432;
+}
+body main .main .ac .ac-input:checked + label,
+body main .main .ac .ac-label:hover {
+  background-color: #BC2AFE;
+}
+body main .main .ac .ac-label:after,
+body main .main .ac .ac-input:checked + .ac-label:after {
+  content: "+";
+  position: absolute;
+  display: block;
+  right: 0;
+  top: 0;
+  width: 2em;
+  height: 100%;
+  line-height: 2.25em;
+  text-align: center;
+  background-color: #B8A254;
+  transition: background-color 0.15s ease-in-out;
+}
+body main .main .ac .ac-label:hover:after,
+body main .main .ac .ac-input:checked + .ac-label:after {
+  background-color: var(--shadow);
+}
+body main .main .ac .ac-input:checked + .ac-label:after {
+  content: "-";
+}
+body main .main .ac .ac-input {
+  display: none;
+}
+body main .main .ac .ac-input:checked ~ .ac-text,
+body main .main .ac .ac-sub .ac-input:checked ~ .ac-sub-text {
+  opacity: 1;
+  height: auto;
+}
+body main .main .ac .ac-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  opacity: 0;
+  height: 0;
+  margin-bottom: 0.5em;
+  transition: opacity 0.5s ease-in-out;
+  overflow: hidden;
+}
+body main .main .ac .ac-text .ac-sub {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  background-color: #B8A254;
+}
+body main .main .ac .ac-text .ac-sub .ac-label {
+  background: none;
+  font-weight: 600;
+  padding: 0.5em 2em;
+  margin-bottom: 0;
+}
+body main .main .ac .ac-text .ac-sub .ac-label:checked {
+  background: none;
+  border-bottom: 1px solid whitesmoke;
+}
+body main .main .ac .ac-text .ac-sub .ac-label:after,
+body main .main .ac .ac-text .ac-sub .ac-input:checked + .ac-label:after {
+  left: 0;
+  background: none;
+}
+body main .main .ac .ac-text .ac-sub .ac-input:checked + label,
+body main .main .ac .ac-text .ac-sub .ac-label:hover {
+  background: none;
+}
+body main .main .ac .ac-text .ac-sub .ac-sub-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 85%;
+  opacity: 0;
+  height: 0;
+  margin-bottom: 0.5em;
+  transition: opacity 0.5s ease-in-out;
+  overflow: hidden;
+}
+body main .main .ac .ac-text .ac-sub .ac-sub-text p {
+  font-family: "News Cycle";
+  font-size: 1.3em;
+}
+body main .main .ac .ac-text .ac-sub .ac-sub-text p a {
+  color: var(--primary);
 }
 body footer {
   display: flex;

@@ -6,6 +6,7 @@ from django import forms
 admin.site.register(Department)
 admin.site.register(Category)
 # admin.site.register(Policy)
+admin.site.register(Link)
 
 class PolicyAdminForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorWidget())

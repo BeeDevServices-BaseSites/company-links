@@ -5,7 +5,9 @@
         <nav>
             {% if user %}
                 <a href="/">Home</a>
-                <a href="/policy/createPolicy/">Create New Policy</a>
+                {% if user.role == 'Webmaster' %}
+                    <a href="/policy/createPolicy/">Create New Policy</a>
+                {% endif %}
                 <a href="/logout/">Logout</a>
             {% endif %}
         </nav>

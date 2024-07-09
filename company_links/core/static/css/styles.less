@@ -20,6 +20,8 @@ body {
             .flexrow();
             width: 100%;
             justify-content: space-between;
+            font-family: Lobster;
+            font-weight: normal;
             
             img {
                 max-width: 150px;
@@ -77,6 +79,110 @@ body {
         }
         .main {
             .flexcolumn();
+            width: 100%;
+            margin-top: 2em;
+
+            .ac {
+                .flexcolumn();
+                width: 85%;
+                
+                .ac-label {
+                    width: 100%;
+                    font-family: Lobster;
+                    font-weight: normal;
+                    font-size: 1.8em;
+                    position: relative;
+                    padding: .5em 1em;
+                    margin-bottom: .5em;
+                    display: block;
+                    cursor: pointer;
+                    background-color: var(--shadow);
+                    transition: background-color .15s ease-in-out;
+                    color: @green;
+                }
+                .ac-input:checked + label, .ac-label:hover {
+                    background-color: @purple;
+                }
+                .ac-label:after, .ac-input:checked + .ac-label:after {
+                    content: "+";
+                    position: absolute;
+                    display: block;
+                    right: 0;
+                    top: 0;
+                    width: 2em;
+                    height: 100%;
+                    line-height: 2.25em;
+                    text-align: center;
+                    background-color: @highlight;
+                    transition: background-color .15s ease-in-out;
+                }
+
+                .ac-label:hover:after, .ac-input:checked + .ac-label:after {
+                    background-color: var(--shadow);
+                }
+                .ac-input:checked + .ac-label:after {
+                    content: "-";
+                }
+                .ac-input {
+                    display: none;
+                }
+                .ac-input:checked ~ .ac-text, .ac-sub .ac-input:checked ~ .ac-sub-text { 
+                    opacity: 1;
+                    height: auto;
+                }
+                .ac-text {
+                    .flexcolumn();
+                    width: 85%;
+                    opacity: 0;
+                    height: 0;
+                    margin-bottom: .5em;
+                    transition: opacity .5s ease-in-out;
+                    overflow: hidden;
+
+                    .ac-sub {
+                        .flexcolumn();
+                        width: 85%;
+                        background-color: @highlight;
+                        
+                        .ac-label {
+                            background: none;
+                            font-weight: 600;
+                            padding: .5em 2em;
+                            margin-bottom: 0;
+                        }
+                        .ac-label:checked {
+                            background: none;
+                            border-bottom: 1px solid whitesmoke;
+                        }
+                        .ac-label:after, .ac-input:checked + .ac-label:after {
+                            left: 0;
+                            background: none;
+                        }
+                        .ac-input:checked + label, .ac-label:hover {
+                        background: none;
+                    }
+                        
+                        .ac-sub-text {
+                            .flexcolumn();
+                            width: 85%;
+                            opacity: 0;
+                            height: 0;
+                            margin-bottom: .5em;
+                            transition: opacity .5s ease-in-out;
+                            overflow: hidden;
+
+                            p {
+                                font-family: "News Cycle";
+                                font-size: 1.3em;
+
+                                a {
+                                    color: var(--primary);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
     footer {
