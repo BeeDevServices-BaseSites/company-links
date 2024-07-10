@@ -18,7 +18,7 @@
                         <article class="ac-sub-text">
                             {% for p in policies %}
                                 {% if p.dept_id == d.id %}
-                                    <p><a href="/policy/{{d.id}}/">{{p.title}}</a></p>
+                                    <p><a href="/policy/{{p.id}}/">{{p.title}}</a></p>
                                 {% endif %}
                             {% endfor %}
                         </article>

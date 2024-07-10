@@ -19,3 +19,15 @@ class PolicyAdmin(admin.ModelAdmin):
     form = PolicyAdminForm
 
 admin.site.register(Policy, PolicyAdmin)
+
+class DocAdminForm(forms.ModelForm):
+    content = forms.CharField(widget=CKEditorWidget())
+
+    class Meta:
+        model = Doc
+        fields = '__all__'
+
+class DocAdmin(admin.ModelAdmin):
+    form = DocAdminForm
+
+admin.site.register(Doc, DocAdmin)

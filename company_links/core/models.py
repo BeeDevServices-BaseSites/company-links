@@ -33,7 +33,24 @@ class Policy(models.Model):
     
     def policyAuthor(self):
         return self.author.first_name
+
+class Doc(models.Model):
+    title = models.CharField(max_length=255)
+    content = RichTextField()
+    docCat = models.ForeignKey(Category, related_name='docCategory', on_delete=CASCADE, blank=True)
+    docAuthor = models.ForeignKey(AuthUser, related_name='docAuthor', on_delete=CASCADE)
+    docDept = models.ForeignKey(Department, related_name='docDepartment', on_delete=CASCADE, blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.title} - {self.docDept.department if self.docDept else "No Department"}'
+
+    def policyDept(self):
+        return self.docDept.department if self.docDept else "No Department"
     
+    def policyAuthor(self):
+        return self.docAuthor.first_name
 
 class Link(models.Model):
     name = models.CharField(max_length=255)

@@ -68,3 +68,23 @@
   font-weight: 400;
   src: url(https://fonts.gstatic.com/s/lobster/v30/neILzCirqoswsqX9zoKmNg.ttf) format('truetype');
 }
+/*
+      www.OnlineWebFonts.Com 
+      You must credit the author Copy this link on your web 
+      <div>Font made from <a href="http://www.onlinewebfonts.com/fonts">Web Fonts</a>is licensed by CC BY 4.0</div>
+      OR
+      <a href="http://www.onlinewebfonts.com/fonts">Web Fonts</a>
+
+      CSS rules to specify fonts
+
+      font-family: "Kessel205W00-Book";;
+
+*/
+@font-face {
+  font-family: "Kessel205W00-Book";
+  src: url("https://db.onlinewebfonts.com/t/b7d4f106ab4959cc88cb7d0878c732c6.eot");
+  src: url("https://db.onlinewebfonts.com/t/b7d4f106ab4959cc88cb7d0878c732c6.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/b7d4f106ab4959cc88cb7d0878c732c6.woff") format("woff"), url("https://db.onlinewebfonts.com/t/b7d4f106ab4959cc88cb7d0878c732c6.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/b7d4f106ab4959cc88cb7d0878c732c6.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/b7d4f106ab4959cc88cb7d0878c732c6.svg#Kessel205W00-Book") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
