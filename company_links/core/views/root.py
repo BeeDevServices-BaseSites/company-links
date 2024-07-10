@@ -32,7 +32,7 @@ def index(request):
             'links': links,
             'docs': docs,
         }
-        print('user', user)
+        print('user', user, 'policies', policies, 'docs', docs, 'links', links)
         return render(request, 'index.html', context)
 
 def logout(request):

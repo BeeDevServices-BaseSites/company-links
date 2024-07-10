@@ -30,7 +30,7 @@
                         <label class="ac-label" for="ac-docs-{{d.id}}">Documents</label>
                         <article class="ac-sub-text">
                             {% for doc in docs %}
-                                {% if doc.dept_id == d.id %}
+                                {% if doc.docDept_id == d.id %}
                                     <p><a href="/document/{{doc.id}}/">{{doc.title}}</a></p>
                                 {% endif %}
                             {% endfor %}
