@@ -22,7 +22,7 @@ def index(request):
         departments = Department.objects.filter(level__lte=user.level)
         categories = Category.objects.values().all()
         links = Link.objects.filter(theDept__level__lte=user.level)
-        print('policies', policies)
+        docs = Doc.objects.filter(docDept__level__lte=user.level)
         context = {
             'user': user,
             'role': role,
@@ -30,6 +30,7 @@ def index(request):
             'departments': departments,
             'categories': categories,
             'links': links,
+            'docs': docs,
         }
         print('user', user)
         return render(request, 'index.html', context)
@@ -53,6 +54,21 @@ def viewPolicy(request, policy_id):
             'role': role,
         }
         return render(request, 'viewPolicy.html', context)
+
+def viewDoc(request, doc_id):
+    if 'user_id' not in request.session:
+        messages.error(request, "Please log in")
+        return redirect('/')
+    else:
+        user = User.objects.get(id=request.session['user_id'])
+        role = request.session['role']
+        doc = get_object_or_404(Doc, id=doc_id)
+        context = {
+            'doc': doc,
+            'user': user,
+            'role': role,
+        }
+        return render(request, 'viewDoc.html', context)
 
 def createPolicy(request):
     if 'user_id' not in request.session:

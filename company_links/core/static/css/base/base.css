@@ -77,13 +77,13 @@
 
       CSS rules to specify fonts
 
-      font-family: "Kessel205W00-Book";;
+      font-family: "Kessel 205 W00 Book";;
 
 */
 @font-face {
-  font-family: "Kessel205W00-Book";
+  font-family: "Kessel 205 W00 Book";
   src: url("https://db.onlinewebfonts.com/t/b7d4f106ab4959cc88cb7d0878c732c6.eot");
-  src: url("https://db.onlinewebfonts.com/t/b7d4f106ab4959cc88cb7d0878c732c6.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/b7d4f106ab4959cc88cb7d0878c732c6.woff") format("woff"), url("https://db.onlinewebfonts.com/t/b7d4f106ab4959cc88cb7d0878c732c6.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/b7d4f106ab4959cc88cb7d0878c732c6.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/b7d4f106ab4959cc88cb7d0878c732c6.svg#Kessel205W00-Book") format("svg");
+  src: url("https://db.onlinewebfonts.com/t/b7d4f106ab4959cc88cb7d0878c732c6.eot?#iefix") format("embedded-opentype"), url("https://db.onlinewebfonts.com/t/b7d4f106ab4959cc88cb7d0878c732c6.woff") format("woff"), url("https://db.onlinewebfonts.com/t/b7d4f106ab4959cc88cb7d0878c732c6.woff2") format("woff2"), url("https://db.onlinewebfonts.com/t/b7d4f106ab4959cc88cb7d0878c732c6.ttf") format("truetype"), url("https://db.onlinewebfonts.com/t/b7d4f106ab4959cc88cb7d0878c732c6.svg#Kessel 205 W00 Book") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: swap;

@@ -13,12 +13,12 @@
                 <label for="ac-{{d.id}}" class="ac-label">{{d.department}}</label>
                 <article class="ac-text">
                     <div class="ac-sub">
-                        <input class="ac-input" type="checkbox" name="ac-policy-{{d.id}}" id="ac-policy-{{d.id}}">
-                        <label class="ac-label" for="ac-policy-{{d.id}}">Polices</label>
+                        <input type="checkbox" name="ac-link-{{d.id}}" id="ac-link-{{d.id}}" class="ac-input">
+                        <label class="ac-label" for="ac-link-{{d.id}}">Links</label>
                         <article class="ac-sub-text">
-                            {% for p in policies %}
-                                {% if p.dept_id == d.id %}
-                                    <p><a href="/policy/{{p.id}}/">{{p.title}}</a></p>
+                            {% for l in links %}
+                                {% if l.theDept_id == d.id %}
+                                    <p><a href="{{l.url}}" target="_blank">{{l.name}}</a></p>
                                 {% endif %}
                             {% endfor %}
                         </article>
@@ -26,12 +26,25 @@
                 </article>
                 <article class="ac-text">
                     <div class="ac-sub">
-                        <input type="checkbox" name="ac-link-{{d.id}}" id="ac-link-{{d.id}}" class="ac-input">
-                        <label class="ac-label" for="ac-link-{{d.id}}">Links</label>
+                        <input class="ac-input" type="checkbox" name="ac-docs-{{d.id}}" id="ac-docs-{{d.id}}">
+                        <label class="ac-label" for="ac-docs-{{d.id}}">Documents</label>
                         <article class="ac-sub-text">
-                            {% for l in links %}
-                                {% if l.theDept_id == d.id %}
-                                    <p><a href="{{l.url}}" target="_blank">{{l.name}}</a></p>
+                            {% for doc in docs %}
+                                {% if doc.dept_id == d.id %}
+                                    <p><a href="/document/{{doc.id}}/">{{doc.title}}</a></p>
+                                {% endif %}
+                            {% endfor %}
+                        </article>
+                    </div>
+                </article>
+                <article class="ac-text">
+                    <div class="ac-sub">
+                        <input class="ac-input" type="checkbox" name="ac-policy-{{d.id}}" id="ac-policy-{{d.id}}">
+                        <label class="ac-label" for="ac-policy-{{d.id}}">Policies</label>
+                        <article class="ac-sub-text">
+                            {% for p in policies %}
+                                {% if p.dept_id == d.id %}
+                                    <p><a href="/policy/{{p.id}}/">{{p.title}}</a></p>
                                 {% endif %}
                             {% endfor %}
                         </article>

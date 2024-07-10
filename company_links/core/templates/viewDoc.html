@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    {% block head %} {% include 'base/head.html' %} {% endblock head %}
+<body>
+    {% block header %} {% include 'base/header.html' %} {% endblock header %}
+    {% block flash %} {% include 'base/flash.html' %} {% endblock flash %}
+    <main>
+        <div class="policy">
+            <div class="column">
+                <!-- <a href="/{{doc.id}}/edit/">Edit</a> -->
+                <h3>Department: {{doc.docDept}}</h3>
+                <h3>Author: {{doc.docAuthor}}</h3>
+            </div>
+            <div class="doc">
+                {{doc.content|safe}}
+            </div>
+        </div>
+    </main>
+    {% block footer %} {% include 'base/footer.html'  %} {% endblock footer %}
+</body>
+</html>

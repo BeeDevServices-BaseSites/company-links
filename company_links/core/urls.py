@@ -11,6 +11,7 @@ urlpatterns = [
     path('policy/<int:policy_id>/', views.viewPolicy),
     path('policy/createPolicy/', views.createPolicy),
     path('policy/<int:policy_id>/edit/', views.editPolicy),
+    path('document/<int:doc_id>/', views.viewDoc),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
